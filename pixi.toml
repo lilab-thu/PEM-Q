@@ -1,0 +1,29 @@
+[workspace]
+authors = ["tpob <tpob@tpob.xyz>"]
+channels = ["conda-forge", "bioconda"]
+name = "pem-q"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+
+[activation.env]
+BWA_INDEX = "/conglilab/shared/genomics/pipeline_atac/mm10/bwa-mem_index"
+PATH = "$PIXI_PROJECT_ROOT:$PIXI_PROJECT_ROOT/main:$PIXI_PROJECT_ROOT/tools:$PATH"
+
+[dependencies]
+r-base = "4.3.*"
+perl = ">=5.32.1,<5.33"
+pysam = ">=0.23.0,<0.24"
+docopt = ">=0.6.2,<0.7"
+r-optparse = ">=1.7.5,<2"
+r-scales = ">=1.4.0,<2"
+r-ggplot2 = ">=3.5.2,<4"
+python = "3.10.*"
+bwa = "==0.7.12"
+flash = "==1.2.11"
+samtools = "==1.3.1"
+seqtk = ">=1.4,<2"
+biopython = ">=1.85,<2"
+pandas = ">=2.2.3,<3"
+numpy = ">=2.2.5,<3"
