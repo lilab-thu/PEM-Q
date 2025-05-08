@@ -8,7 +8,7 @@ version = "0.1.0"
 [tasks]
 
 [activation.env]
-BWA_INDEX = "/conglilab/shared/genomics/pipeline_atac/mm10/bwa-mem_index"
+BWA_INDEX = "$PIXI_PROJECT_ROOT/data/genome_index"
 PATH = "$PIXI_PROJECT_ROOT:$PIXI_PROJECT_ROOT/main:$PIXI_PROJECT_ROOT/tools:$PATH"
 
 [dependencies]
