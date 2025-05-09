@@ -9,6 +9,7 @@ version = "0.1.0"
 
 [activation.env]
 BWA_INDEX = "$PIXI_PROJECT_ROOT/data/genome_index"
+GENOME_DB = "$PIXI_PROJECT_ROOT/data/genome_db" # For tools/TranslocHelper.R, if don't need this result, don't need to make this dir.
 PATH = "$PIXI_PROJECT_ROOT:$PIXI_PROJECT_ROOT/main:$PIXI_PROJECT_ROOT/tools:$PATH"
 
 [dependencies]
