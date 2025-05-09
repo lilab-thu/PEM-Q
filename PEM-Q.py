@@ -54,7 +54,9 @@ import os
 import sys
 import threading
 from time import time
+
 from docopt import docopt
+
 
 def run_script(sample=None, cutsite=None, genome=None, primer=None, primer_chr=None, primer_start=None, primer_end=None, primer_strand=None):
     
@@ -74,7 +76,7 @@ def run_script(sample=None, cutsite=None, genome=None, primer=None, primer_chr=N
     os.system(cmd)
 
     print("######## 02 Barcode Extract... ########")
-    cmd = "rmb_dedup_v4.py {} 17 CCACGCGTGCTCTACA".format(basename)
+    cmd = "rmb_dedup_v4.py {} 11 CCACGCGTGCTCTACA".format(basename)
     print(cmd)
     os.system(cmd)
 
