@@ -1,6 +1,6 @@
 [workspace]
 authors = ["tpob <tpob@tpob.xyz>"]
-channels = ["conda-forge", "bioconda"]
+channels = ["conda-forge", "bioconda", "tttpob"]
 name = "pem-q"
 platforms = ["linux-64"]
 version = "0.1.0"
@@ -32,3 +32,7 @@ perl-text-csv = ">=2.2,<3"
 perl-file-which = ">=1.24,<2"
 perl-ipc-system-simple = ">=1.30,<2"
 perl-cgi = ">=4.67,<5"
+perl-interpolation = ">=0.74,<0.75"
+perl-switch-plain = ">=0.501,<0.502"
+bioconductor-genomeinfodb = ">=1.38.1,<2"
+bioconductor-genomeinfodbdata = ">=1.2.11,<2"
