@@ -5,7 +5,7 @@
 #Last Update:2021.6.25
 
 """PEM-Q
-    
+
     This is a pipeline to analyze PEM-seq data or data similar, help you analyze repair outcome of your DNA library.
 
     Copyright (C) 2019  Mengzhu Liu
@@ -28,7 +28,7 @@ Author: Mengzhu LIU
 Contact: liumz@pku.edu.cn/liu.mengzhu128@gmail.com
 
 Usage:
-    PEM-Q.py <genome> <sample> <cutsite> <primer_chr> <primer_start> <primer_end> <primer_strand> <primer>
+    PEM-Q.py <genome> <sample> <cutsite> <primer_chr> <primer_start> <primer_end> <primer_strand> <primer> <blen>
 
 Options:
 -h --help               Show this screen.
@@ -41,10 +41,11 @@ Options:
 <primer_end>            end of red primer.
 <primer_strand>         strand of red primer(+/-).
 <primer>                sequence of red primer.
+<blen>                  barcode length
 
 In this program is for PEM-seq data analysis. Pair end target sequencing data is also compatible with this program.
 
-Input file: fastq file 
+Input file: fastq file
 Output directory: results
 Last Update:2021.1.12
 
@@ -57,7 +58,17 @@ from time import time
 from docopt import docopt
 
 
-def run_script(sample=None, cutsite=None, genome=None, primer=None, primer_chr=None, primer_start=None, primer_end=None, primer_strand=None):
+def run_script(
+    sample=None,
+    cutsite=None,
+    genome=None,
+    primer=None,
+    primer_chr=None,
+    primer_start=None,
+    primer_end=None,
+    primer_strand=None,
+    blen=None,
+):
     
     start_time = time()
     
@@ -75,7 +86,7 @@ def run_script(sample=None, cutsite=None, genome=None, primer=None, primer_chr=N
     os.system(cmd)
 
     print("######## 02 Barcode Extract... ########")
-    cmd = "rmb_dedup_v4.py {} 11 CCACGCGTGCTCTACA".format(basename)
+    cmd = "rmb_dedup_v4.py {} {} CCACGCGTGCTCTACA".format(basename, blen)
     print(cmd)
     os.system(cmd)
 
@@ -126,9 +137,17 @@ def run_script(sample=None, cutsite=None, genome=None, primer=None, primer_chr=N
 def main():
     args = docopt(__doc__,version='PEM-Q v5.1s')
     
-    kwargs = {'sample':args['<sample>'], 'cutsite':args['<cutsite>'],'genome':args['<genome>'],\
-    'primer':args['<primer>'],'primer_chr':args['<primer_chr>'],'primer_start':args['<primer_start>'],\
-    'primer_end':args['<primer_end>'],'primer_strand':args['<primer_strand>']}
+    kwargs = {
+        "sample": args["<sample>"],
+        "cutsite": args["<cutsite>"],
+        "genome": args["<genome>"],
+        "primer": args["<primer>"],
+        "primer_chr": args["<primer_chr>"],
+        "primer_start": args["<primer_start>"],
+        "primer_end": args["<primer_end>"],
+        "primer_strand": args["<primer_strand>"],
+        "blen": args["<blen>"],
+    }
     
     print('[PEM-Q] genome: ' + str(kwargs['genome']))
     print('[PEM-Q] sample: ' + str(kwargs['sample']))
@@ -138,6 +157,7 @@ def main():
     print('[PEM-Q] primer_start: ' + str(kwargs['primer_start']))
     print('[PEM-Q] primer_end: ' + str(kwargs['primer_end']))
     print('[PEM-Q] primer_strand: ' + str(kwargs['primer_strand']))
+    print("[PEM-Q] barcode_length: " + str(kwargs["blen"]))
     
     try:
         run_script(**kwargs)
