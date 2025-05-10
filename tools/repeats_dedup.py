@@ -15,8 +15,10 @@ Options:
 
 """
 from time import time
-from docopt import docopt
+
 import pandas as pd
+from docopt import docopt
+
 
 def repeats_dedup(file,mapqual_cutoff,feature_list):
     
@@ -32,11 +34,12 @@ def repeats_dedup(file,mapqual_cutoff,feature_list):
         couple = zip(x,y)
         for i,j in couple:
             file_tab.loc[:,barcode_list[i]] = file_tab['Barcode'].str[j]
-        # structure: 5,9,13
-        dedup_list_high_mapqual = feature_list + ['1','2','3','4','6','7','8','10','11','12','14','15']
+        # structure 3, 8 is always the same T base, the barcode length is 11
+        bc_positions = list(map(str, [1, 2, 4, 5, 6, 7, 9, 10, 11]))
+        dedup_list_high_mapqual = feature_list + bc_positions
         # low_feature_list = ['B_Qstart','B_Qend','Qstart','Qend','Qlen']
         # low_feature_list = ['Rname','Strand','Bait_end','Junction']
-        dedup_list_low_mapqual = ['1','2','3','4','6','7','8','10','11','12','14','15']
+        dedup_list_low_mapqual = bc_positions
         print(dedup_list_high_mapqual)
         file_tab['Length'] = length
     
