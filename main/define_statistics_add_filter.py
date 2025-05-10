@@ -43,10 +43,14 @@ Last Update:2021.01.14
 
 
 import os
+import warnings
 from time import time
-from docopt import docopt
-import pandas as pd
+
 import numpy as np
+import pandas as pd
+from docopt import docopt
+
+warnings.simplefilter(action="ignore", category=FutureWarning)
     
 def statistics_add_filter(basename=None,genome=None,cutsite=None,transloc_range=None,primer=None,primer_chr=None,primer_strand=None,adapter=None):
     

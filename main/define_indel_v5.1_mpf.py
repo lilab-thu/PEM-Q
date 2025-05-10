@@ -56,12 +56,16 @@ Last Update:2019.6.10
     #######################################
     
 import os
-import pysam
 import re
+import warnings
 from time import time
-from docopt import docopt
+
 import pandas as pd
+import pysam
 from Bio.Seq import Seq
+from docopt import docopt
+
+warnings.simplefilter(action="ignore", category=FutureWarning)
 
 class Define_indel(object):
     

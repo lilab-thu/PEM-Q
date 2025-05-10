@@ -42,12 +42,13 @@ Last Update:2019.6.10
 """
 
 import re
+import warnings
 from time import time
 
 import pandas as pd
 from docopt import docopt
 
-import numpy as np
+warnings.simplefilter(action="ignore", category=FutureWarning)
 
 
 def cal_soft_clipping_number(cigar):

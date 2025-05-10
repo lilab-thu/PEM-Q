@@ -48,10 +48,14 @@ Last Update:2019.10.23
 """
 
 import os
-import pysam
+import warnings
 from time import time
-from docopt import docopt
+
 import pandas as pd
+import pysam
+from docopt import docopt
+
+warnings.simplefilter(action="ignore", category=FutureWarning)
 
 def load(inputfile):
     
