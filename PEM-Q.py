@@ -52,7 +52,6 @@ Last Update:2021.1.12
 
 import os
 import sys
-import threading
 from time import time
 
 from docopt import docopt

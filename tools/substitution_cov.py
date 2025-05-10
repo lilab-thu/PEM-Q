@@ -49,7 +49,6 @@ import re
 from time import time
 from docopt import docopt
 import pandas as pd
-import numpy as np
 
 
 def cal_soft_clipping_number(cigar):

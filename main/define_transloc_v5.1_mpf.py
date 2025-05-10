@@ -61,8 +61,6 @@ import pysam
 import re
 from time import time
 from docopt import docopt
-import pandas as pd
-from Bio import SearchIO
 from Bio.Seq import Seq
 
 class Define_transloc(object):

@@ -42,12 +42,10 @@ Author: Mengzhu LIU
 Last Update:2019.6.24
 
 """
-import os
 from time import time
 from docopt import docopt
 import pandas as pd
 import numpy as np
-from difflib import get_close_matches
 
 def DSB_filter(basename,chromosome,cutsite,strand,de_method,yourfile):
     ### column to dedup : Bait_rname,Bait_strand,Bait_start,Bait_end,Prey_rname,Prey_strand,Prey_start,Prey_end,Rname,Strand,Junction,Sequence

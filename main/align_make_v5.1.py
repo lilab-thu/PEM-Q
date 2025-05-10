@@ -71,12 +71,10 @@ Last Update:2019.4.23
     
     
 import os
-import sys
 import threading
 from time import time
 
 import pysam
-from Bio import SearchIO
 from docopt import docopt
 
 

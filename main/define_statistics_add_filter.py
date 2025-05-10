@@ -43,8 +43,6 @@ Last Update:2021.01.14
 
 
 import os
-import pysam
-import re
 from time import time
 from docopt import docopt
 import pandas as pd

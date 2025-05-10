@@ -14,11 +14,9 @@ Options:
 -v --version                        Show version.
 
 """
-import os
 from time import time
 from docopt import docopt
 import pandas as pd
-import numpy as np
 
 def repeats_dedup(file,mapqual_cutoff,feature_list):
     

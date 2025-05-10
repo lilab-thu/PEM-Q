@@ -48,7 +48,6 @@ import os
 from time import time
 from docopt import docopt
 import pandas as pd
-import numpy as np
 import pysam
 from Bio import SeqIO
 

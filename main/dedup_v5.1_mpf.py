@@ -41,11 +41,9 @@ Last Update:2019.10.21
 
 """
 import os
-import pysam
 from time import time
 from docopt import docopt
 import pandas as pd
-import numpy as np
 
 def dedup(basename=None):
     # barcode = pd.read_csv("barcode/"+basename+"_barcode_uniq.txt",sep = '\t',low_memory=False)

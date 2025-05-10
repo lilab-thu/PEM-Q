@@ -61,9 +61,7 @@ import re
 from time import time
 from docopt import docopt
 import pandas as pd
-from Bio import SearchIO
 from Bio.Seq import Seq
-import numpy as np
 
 class Define_indel(object):
     
