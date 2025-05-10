@@ -14,10 +14,13 @@ Options:
 -v --version                        Show version.
 
 """
+import warnings
 from time import time
 
 import pandas as pd
 from docopt import docopt
+
+warnings.simplefilter(action="ignore", category=FutureWarning)
 
 
 def repeats_dedup(file,mapqual_cutoff,feature_list):
