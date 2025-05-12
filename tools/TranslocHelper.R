@@ -429,7 +429,7 @@ getChromLens <- function (assembly) {
   chrnum <- as.numeric(sub("chr","",names(chrlen[grep("chr[0-9]+",names(chrlen),perl=T)])))
   chrlet <- sub("chr","",names(chrlen[grep("chr[A-Z]+",names(chrlen),perl=T)]))
   chrnum <- paste("chr",chrnum[order(chrnum)],sep="")
-  chrlet <- paste("chr",chrlet[match(c("X","Y","M"),chrlet)],sep="")
+  chrlet <- paste("chr",chrlet[match(c("X","Y"),chrlet)],sep="")
   chrlevels <- names(chrlen)[c(match(chrnum,names(chrlen)),match(chrlet,names(chrlen)))]
   # Order the chrlen object by this order
   chrlen <- chrlen[chrlevels]
